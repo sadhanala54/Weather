@@ -2,6 +2,7 @@
 <html ng-app ="parking">
 <head>
 	<title>Parking angular</title>
+    <link rel ="stylesheet"href="app.css">
 	<script type="text/javascript" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
 	<script type="text/javascript" src="./parking.js"></script>
 	<script type="text/javascript" src="./directives.js"></script>
@@ -9,20 +10,34 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<style type="text/css">
-		table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-	</style>
+	
 </head>
-<body ng-controller = "parkingCtrl">
+<body>
+    
+   <div class="container"> 
+       <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bel A Park</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+     
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+    </div>
+    <div class="containera" ng-controller = "parkingCtrl" >
 <h2 ng-bind="title"></h2>
 <table>
 	<thead>
 		<tr>
-		     <th></th>
-			<th>plate</th>
+		     <th>S.NO</th>
+			<th>plae</th>
 			<th>color</th>
 			<th>Entrance</th>
 		</tr>
@@ -30,9 +45,9 @@
 	<tbody>
 		<tr ng-class = "{selected: car.selected}" ng-repeat = "car in cars">
                 <td><input type="checkbox" ng-model="car.selected"></td>
-                <td><span ng-bind="car.plate"></span></td>
+                <td><span ng-bind="car.plate" style="color:red"></span></td>
                 <td><span ng-bind="car.color"></span></td>
-                <td><span ng-bind = "car.entrance"></span></td>			
+                <td><span ng-bind = "car.entrance" style="color:green"></span></td>			
 		</tr>
 	</tbody>
 </table>
@@ -41,8 +56,9 @@
 <input type="text" ng-model = "car.plate" placeholder="what is number plate of car">
 <select ng-model="car.color" ng-options = "color for color in colors">pick color</select>
 <button ng-click = "park(car)" ng-disabled="!car.plate || !car.color">park</button>
-<h3>the new car is : {{car.plate | currency : 'Rs'}}</h3>
+<h3>the new car is : {{car.plate}}</h3>
 <my-alert ng-show="showAlert" topic = "alertTopic" description = "alertDescription" close = "closeAlert()">my alert</my-alert>
+    </div>
 
 
 

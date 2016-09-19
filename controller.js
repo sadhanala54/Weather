@@ -1,5 +1,5 @@
 appm.controller("parkingCtrl", function($scope) {
-	$scope.title = "1568";
+	$scope.title = "Parking lot ";
     $scope.alertTopic = "Something went wrong",
     $scope.alertDescription = "you have to inform plate and color of the car",
         $scope.showAlert = true;
